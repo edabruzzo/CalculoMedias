@@ -1,24 +1,27 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Scanner;
-
-import javax.swing.JOptionPane;
+import java.util.Set;
 
 public class CalculadoraMedias {
 	
 	
 	public static void main (String[] args) {
 		
+		//preciso saber previamente do usuário quantos dados comporão a amostra
 		System.out.println("QUANTOS DADOS CONTÉM A AMOSTRA ?");
 		Scanner quantidadeDados = new Scanner(System.in);
 		int qtdeDadosInseridosPeloUsuario = quantidadeDados.nextInt();
 		
+		//preenchendo um array com os valores entrados pelo usuário, já dimensionado
+		//de acordo com a quantidade de elementos informados, inclusive considerando 
+		//os repetidos
 		int[] classes = new int[qtdeDadosInseridosPeloUsuario];
 		
-		int x1 = classes.length;
-		
-		
-		
-		
-		System.out.println("Preenchendo a amostra com valores aleatórios.");
+		System.out.println("Preenchendo a amostra.");
 		
 		//LAÇO PARA PREENCHER A AMOSTRA
 		for (int i=0; i < classes.length; i++ ) {
@@ -40,8 +43,6 @@ public class CalculadoraMedias {
 		
         }  
 			
-		
-		
 		
 		//PARA INPRIMIR A AMOSTRA 
 				for (int i = 0; i < classes.length; i ++ ) {
@@ -82,50 +83,28 @@ public class CalculadoraMedias {
 			}
 			
 			
-		
-		int[] frequencia = new int[10];
-		int[] valor = new int[10];
-		int count = 0;
 			
-		
-		//PARA VERIFICAR A FREQUÊNCIA DOS NÚMEROS	
-		
-		for (int i = 0; i < classes.length; i++) {
-			count = 0;
-			frequencia[i]=0;
-			for(int j = i+1; j < classes.length; j++) {
+			//CONTAR A FREQUENCIA DE CADA NÚMERO: http://www.guj.com.br/t/contar-numeros-repetidos-arraylist/58125/11
 			
-				System.out.println("VERIFICANDO A FREQUÊNCIA DOS NÚMEROS. "
-						+ "VERIFICANDO SE O "+ (j+1)+ "º ELEMENTO, DE VALOR = "+classes[j] + ",  É IGUAL AO "+(i+1)+""
-								+ "º ELEMENTO DE VALOR = "+ classes[i]);
-					
-				if (classes[j] == classes[i]) {
-					
-					 count++;
-					 valor[i]=classes[i];
-					 frequencia[i] = count;
-					
-					 System.out.println(" VALOR REPETIDO: VALOR["+(i+1)+"] = " + valor[i] + " "
-					 		+ "FREQUENCIA["+(i+1)+"] = " + frequencia[i]);
-				}
-					
-				
-										
-				}
-				
-				
+			ArrayList<Integer> dadosAmostra = new ArrayList<Integer>();
+			
+			for (int i=0; i < classes.length; i++) {
+				//transferindo efetivamente os valores do array para a lista
+				dadosAmostra.add(classes[i]);
 			}
 			
 			
-		//PARA INPRIMIR A AMOSTRA E A FREQUÊNCIA
-		System.out.println("IMPRIMINDO A AMOSTRA JÁ ORDENADA E AS FREQUENCIAS :");
-		
-		for (int i = 0; i < classes.length; i ++ ) {
+			Set<Integer> numerosSemRepeticoes = new HashSet<Integer>(dadosAmostra);
+			Iterator<Integer> iteradorDeNumerosSemRepeticoes = numerosSemRepeticoes.iterator();
+			while (iteradorDeNumerosSemRepeticoes.hasNext()) {
+				
+				System.out.println("FREQUÊNCIA DOS NÚMEROS : " + Collections.frequency(dadosAmostra,
+						iteradorDeNumerosSemRepeticoes.next()));
+				
+			} // while
+		} // main
 			
-			System.out.println("VALOR DA AMOSTRA - ELEMENTO NÚMERO " + (i+1) + " DE VALOR =  " + 
-			valor[i] + "FREQUENCIA COM O QUE O NÚMERO APARECE :" + frequencia[i]);
-		}
-					
+	
 		
 		/*
 		
@@ -154,4 +133,4 @@ public class CalculadoraMedias {
 	}
 	
 
-}
+
