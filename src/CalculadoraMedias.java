@@ -105,7 +105,16 @@ public class CalculadoraMedias {
 			*/
 			
 			
-			//MONTANDO A TABELA DE FREQUENCIA
+			//MONTANDO A TABELA DE FREQUENCIA 
+			
+			/*
+			 * 
+			 * ORIGEM DA SOLUÇÃO :
+			 * 
+			 *  http://www.guj.com.br/t/contar-numeros-repetidos-arraylist/58125/11
+			 * 
+			 */
+			
 			Map<Integer, Integer> tabelaFrequencia = new HashMap<Integer, Integer>();   
 			for(int valor : dadosAmostra) {
 			
