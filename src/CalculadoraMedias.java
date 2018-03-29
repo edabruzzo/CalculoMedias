@@ -1,10 +1,10 @@
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class CalculadoraMedias {
 	
@@ -93,7 +93,7 @@ public class CalculadoraMedias {
 				dadosAmostra.add(classes[i]);
 			}
 			
-			
+			/*
 			Set<Integer> numerosSemRepeticoes = new HashSet<Integer>(dadosAmostra);
 			Iterator<Integer> iteradorDeNumerosSemRepeticoes = numerosSemRepeticoes.iterator();
 			while (iteradorDeNumerosSemRepeticoes.hasNext()) {
@@ -102,6 +102,35 @@ public class CalculadoraMedias {
 						iteradorDeNumerosSemRepeticoes.next()));
 				
 			} // while
+			*/
+			
+			
+			//MONTANDO A TABELA DE FREQUENCIA
+			Map<Integer, Integer> tabelaFrequencia = new HashMap<Integer, Integer>();   
+			for(int valor : dadosAmostra) {
+			
+				if (!tabelaFrequencia.containsKey(valor)) {   
+					tabelaFrequencia.put(valor, 0);   
+				   }   
+				tabelaFrequencia.put(valor, tabelaFrequencia.get(valor)+1);   
+				}     
+				
+			Set<Map.Entry<Integer, Integer>> valores = new TreeSet<Map.Entry<Integer, Integer>>(
+					new Comparator<Map.Entry<Integer, Integer>>() {   
+					      public int compare(Map.Entry<Integer, Integer> o2, Map.Entry<Integer, Integer> o1) {   
+					          return o1.getValue().compareTo(o2.getValue());   
+					      }   
+					   });   
+			
+			valores.addAll(tabelaFrequencia.entrySet());
+			
+			System.out.print("TABELA FREQUENCIA : ");
+			
+			for (Map.Entry<Integer, Integer> valor : valores) {   
+			System.out.printf("Número: %d   Vezes: %d", valor.getKey(), valor.getValue()); 
+			}
+			
+			
 		} // main
 			
 	
