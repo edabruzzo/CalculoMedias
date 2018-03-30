@@ -1,10 +1,7 @@
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class CalculadoraMedias {
 	
@@ -158,8 +155,8 @@ public class CalculadoraMedias {
 
 			
 			calculaMediaAritmetica(somaValoresAmostrados, somaFrequencias);
-			
-			
+			calculaMediaHarmonica (tabelaFrequencia, somaFrequencias);
+			calculaMediaGeometrica(tabelaFrequencia, somaFrequencias);
 						
 		} // main
 			
@@ -178,50 +175,57 @@ public class CalculadoraMedias {
 	}
 	
 	
-	public double calculaMediaHarmonica (Map<Integer, Integer> tabelaFrequencia) {
+	public static void calculaMediaHarmonica (Map<Integer, Integer> tabelaFrequencia, int somatoriaFrequencias_Fi) {
 		
 		double mediaHarmonica = 0;
-	
+		double valorFiDivideXi = 0;
 
-		
-		
-		
-		
-		
-		System.out.println("A MÉDIA ARITMÉTICA DOS DADOS AMOSTRADOS É : " + mediaAritmetica);
+			for (Integer key : tabelaFrequencia.keySet()) {
+				
+				int valorXi = key;
+				int valorFi = tabelaFrequencia.get(key);
+				
+				valorFiDivideXi += (valorFi / valorXi);
+				
+			}
+       
+		mediaHarmonica = somatoriaFrequencias_Fi / valorFiDivideXi;		
+			
+
+		System.out.println("A MÉDIA HARMÔNICA DOS DADOS AMOSTRADOS É : " + mediaHarmonica);
 		
 		
 	}
 	
 	
-	public double calculaMediaGeometrica(Map<Integer, Integer> tabelaFrequencia) {
+	public static void calculaMediaGeometrica(Map<Integer, Integer> tabelaFrequencia, int somatorioFrequencia) {
 		
 		double mediaGeometrica = 0;
+		double somatoriaValorFiMultiplicaLogXi = 0;
+	    double logMediaGeometrica = 0;
+	    double antilogMediaGeometrica = 0;
 		
-		
-		
-		
-		
-		
-		
-		return mediaGeometrica;
-	}
-	
+			for (Integer key : tabelaFrequencia.keySet()) {
+				
+				int valorFi = tabelaFrequencia.get(key);
+				
+				somatoriaValorFiMultiplicaLogXi += (valorFi * Math.log10(key));
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+			}
+        
+			logMediaGeometrica = somatoriaValorFiMultiplicaLogXi / somatorioFrequencia;
+		    //A MÉDIA GEOMÉTRICA É JUSTAMENTE O ANTILOG
+			antilogMediaGeometrica = Math.pow(10, logMediaGeometrica);		
+			
+
+		System.out.println("A MÉDIA GEOMÉTRICA DOS DADOS AMOSTRADOS É : " + mediaGeometrica);
+				
+		
+		}
 	
 		
 		
-	}
+}
 	
 
 
