@@ -178,20 +178,30 @@ public class CalculadoraMedias {
 	}
 	
 	
-	public double calculaMediaHarmonica (int somaValoresDados_Xi, int somaFrequenciaDados_Fi) {
+	public double calculaMediaHarmonica (Map<Integer, Integer> tabelaFrequencia) {
 		
 		double mediaHarmonica = 0;
 	
-		mediaHarmonica =  somaFrequenciaDados_Fi /( somaFrequenciaDados_Fi / somaValoresDados_Xi) ; 
+
 		
-		return mediaHarmonica;
+		
+		
+		
+		
+		System.out.println("A MÉDIA ARITMÉTICA DOS DADOS AMOSTRADOS É : " + mediaAritmetica);
+		
 		
 	}
 	
 	
-	public double calculaMediaGeometrica(int somaValoresDados_Xi, int somaFrequenciaDados_Fi) {
+	public double calculaMediaGeometrica(Map<Integer, Integer> tabelaFrequencia) {
 		
 		double mediaGeometrica = 0;
+		
+		
+		
+		
+		
 		
 		
 		return mediaGeometrica;
