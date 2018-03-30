@@ -84,7 +84,7 @@ public class CalculadoraMedias {
 			
 			
 			
-			//CONTAR A FREQUENCIA DE CADA NÚMERO: http://www.guj.com.br/t/contar-numeros-repetidos-arraylist/58125/11
+		//CONTAR A FREQUENCIA DE CADA NÚMERO: http://www.guj.com.br/t/contar-numeros-repetidos-arraylist/58125/11
 			
 			ArrayList<Integer> dadosAmostra = new ArrayList<Integer>();
 			
@@ -123,7 +123,9 @@ public class CalculadoraMedias {
 				   }   
 				tabelaFrequencia.put(valor, tabelaFrequencia.get(valor)+1);   
 				}     
-				
+
+		/*
+			
 			Set<Map.Entry<Integer, Integer>> valores = new TreeSet<Map.Entry<Integer, Integer>>(
 					new Comparator<Map.Entry<Integer, Integer>>() {   
 					      public int compare(Map.Entry<Integer, Integer> o2, Map.Entry<Integer, Integer> o1) {   
@@ -133,40 +135,81 @@ public class CalculadoraMedias {
 			
 			valores.addAll(tabelaFrequencia.entrySet());
 			
-			System.out.print("TABELA FREQUENCIA : ");
+			System.out.print("TABELA FREQUENCIA : " + tabelaFrequencia.entrySet().);
+			
 			
 			for (Map.Entry<Integer, Integer> valor : valores) {   
 			System.out.printf("Número: %d   Vezes: %d", valor.getKey(), valor.getValue()); 
 			}
 			
+			*/
 			
+			int somaValoresAmostrados = 0;
+			int somaFrequencias = 0;
+			
+			for (Integer key : tabelaFrequencia.keySet()) {
+				
+				System.out.println("VALOR : " + key + "FREQUÊNCIA :"+tabelaFrequencia.get(key)+".");
+				
+				somaValoresAmostrados += key;
+				somaFrequencias += tabelaFrequencia.get(key);
+			
+			}
+
+			
+			calculaMediaAritmetica(somaValoresAmostrados, somaFrequencias);
+			
+			
+						
 		} // main
 			
+
+	
+	
+	
+	public static void calculaMediaAritmetica(int somaValoresDados_Xi, int somaFrequenciaDados_Fi) {
+		
+		double mediaAritmetica = 0;
+	
+		mediaAritmetica = (somaValoresDados_Xi * somaFrequenciaDados_Fi) / somaFrequenciaDados_Fi; 
+		
+		System.out.println("A MÉDIA ARITMÉTICA DOS DADOS AMOSTRADOS É : " + mediaAritmetica);
+		
+	}
+	
+	
+	public double calculaMediaHarmonica (int somaValoresDados_Xi, int somaFrequenciaDados_Fi) {
+		
+		double mediaHarmonica = 0;
+	
+		mediaHarmonica =  somaFrequenciaDados_Fi /( somaFrequenciaDados_Fi / somaValoresDados_Xi) ; 
+		
+		return mediaHarmonica;
+		
+	}
+	
+	
+	public double calculaMediaGeometrica(int somaValoresDados_Xi, int somaFrequenciaDados_Fi) {
+		
+		double mediaGeometrica = 0;
+		
+		
+		return mediaGeometrica;
+	}
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 		
-		/*
-		
-		
-		public double calculaMediaAritmetica() {
-			
-			
-			
-			
-		}
-		
-		
-		public double calculaMediaHarmonica() {
-			
-			
-		}
-		
-		
-		public double calculaMediaGeometrica() {
-			
-			
-		}
-		
-		*/
 		
 	}
 	
