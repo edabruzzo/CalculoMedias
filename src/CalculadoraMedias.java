@@ -106,18 +106,7 @@ public class CalculadoraMedias {
 		
 		//LAÇO PARA PREENCHER A AMOSTRA
 		for (int i=0; i < classes.length; i++ ) {
-		
-			/*
-			
-			POSSO PREENCHER COM VALORES ALEATÓRIOS ATRAVÉS DE RANDOM
-			
-			Random valorAleatorio = new Random();
-			classes[i] = valorAleatorio.nextInt(50); 					
-			
-			 */
-			
-			//OU RECEBER OS VALORES COMO ENTRADA DO USUÁRIO
-			//LAÇO PARA PREENCHER A AMOSTRA
+	
 			System.out.println("DIGITE O "+(i+1)+"º VALOR DA AMOSTRA :");
 			Scanner recebeValoresUsuario = new Scanner(System.in);
 			classes[i] = recebeValoresUsuario.nextInt();
@@ -156,7 +145,7 @@ public class CalculadoraMedias {
 		//LAÇO PARA PREENCHER A AMOSTRA
 		for (int i=0; i < classes.length; i++ ) {
 		
-			//POSSO PREENCHER COM VALORES ALEATÓRIOS ATRAVÉS DE RANDOM
+
 			
 			Random valorAleatorio = new Random();
 			classes[i] = valorAleatorio.nextInt(50); 					
